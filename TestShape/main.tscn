@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://decfxbvaycnrs"]
+
+[ext_resource type="PackedScene" uid="uid://fjvqlu8f7dpv" path="res://cube.tscn" id="1_201j8"]
+[ext_resource type="Script" path="res://main.gd" id="1_6636e"]
+[ext_resource type="PackedScene" uid="uid://d1clcr4s7swi0" path="res://sphere.tscn" id="3_4k08a"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_evp4l"]
+radius = 0.1
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_6636e")
+
+[node name="Cube1" parent="." instance=ExtResource("1_201j8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.801623)
+
+[node name="Cube2" parent="." instance=ExtResource("1_201j8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.72322)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.55845)
+shape = SubResource("SphereShape3D_evp4l")
+target_position = Vector3(0, 0, -10)
+debug_shape_custom_color = Color(0.447059, 0.705882, 0.447059, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0259676, 0, 0.999663, 0, 1, 0, -0.999663, 0, -0.0259676, 3.81909, 0, 0)
+
+[node name="Sphere" parent="." instance=ExtResource("3_4k08a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
